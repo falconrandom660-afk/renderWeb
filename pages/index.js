@@ -112,6 +112,21 @@ export default function Home() {
             </div>
           </aside>
         </div>
+
+        <section style={{ display: 'flex', justifyContent: 'center', padding: '2rem 1rem' }}>
+          <div style={{
+            maxWidth: 1000,
+            background: '#fff',
+            padding: '1.25rem 1.5rem',
+            borderRadius: 10,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
+            textAlign: 'center'
+          }}>
+            <div style={{ fontSize: '1.9rem', fontWeight: 900, color: '#b21f1f', lineHeight: '1.1' }}>
+              oportunidad unica de multiplicar x1000 tu capital , convierte 100$ en 100.000$ en unos dias .
+            </div>
+          </div>
+        </section>
       </main>
     </>
   )
