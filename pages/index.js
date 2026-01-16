@@ -127,6 +127,84 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <section style={{ maxWidth: 1100, margin: '1rem auto 3rem', padding: '1rem' }}>
+          <h3 style={{ marginBottom: '0.5rem' }}>Oportunidades de la semana</h3>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff', borderRadius: 8, boxShadow: '0 6px 18px rgba(0,0,0,0.06)' }}>
+              <thead>
+                <tr style={{ textAlign: 'left', borderBottom: '1px solid #eee' }}>
+                  <th style={{ padding: '0.75rem 1rem' }}>#</th>
+                  <th style={{ padding: '0.75rem 1rem' }}>Coin</th>
+                  <th style={{ padding: '0.75rem 1rem' }}>Descripción</th>
+                  <th style={{ padding: '0.75rem 1rem' }}>Multiplicador</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
+                  <td style={{ padding: '0.6rem 1rem' }}>1</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>MoonPup</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>Token emergente con volumen creciente</td>
+                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>2x</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
+                  <td style={{ padding: '0.6rem 1rem' }}>2</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>StarDoge</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>Pequeña comunidad, alta volatilidad</td>
+                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>3x</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
+                  <td style={{ padding: '0.6rem 1rem' }}>3</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>LaserCat</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>Rumores de listados en exchanges</td>
+                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>5x</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
+                  <td style={{ padding: '0.6rem 1rem' }}>4</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>QuantumShib</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>Impulso especulativo reciente</td>
+                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>8x</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
+                  <td style={{ padding: '0.6rem 1rem' }}>5</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>RocketPepe</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>Comunidad activa y marketing</td>
+                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>12x</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
+                  <td style={{ padding: '0.6rem 1rem' }}>6</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>HyperFloki</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>Alta liquidez temporal</td>
+                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>25x</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
+                  <td style={{ padding: '0.6rem 1rem' }}>7</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>GalaxyINU</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>Proyecto con roadmap ambicioso</td>
+                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>50x</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
+                  <td style={{ padding: '0.6rem 1rem' }}>8</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>PhantomDoge</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>Movimientos explosivos recientes</td>
+                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>100x</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
+                  <td style={{ padding: '0.6rem 1rem' }}>9</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>NebulaMix</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>Token meme viral</td>
+                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>200x</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '0.6rem 1rem' }}>10</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>ShadowToken</td>
+                  <td style={{ padding: '0.6rem 1rem' }}>Riesgo alto — posible caída fuerte</td>
+                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700, color: '#b21f1f' }}>Pérdida -90%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </main>
     </>
   )
