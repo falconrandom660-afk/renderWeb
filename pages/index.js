@@ -1,4 +1,49 @@
+import { useEffect, useState } from 'react'
+
 export default function Home() {
+  const initialRows = [
+    { id: 1, name: 'MoonPup', desc: 'Token emergente con volumen creciente', target: 2 },
+    { id: 2, name: 'StarDoge', desc: 'Pequeña comunidad, alta volatilidad', target: 3 },
+    { id: 3, name: 'LaserCat', desc: 'Rumores de listados en exchanges', target: 5 },
+    { id: 4, name: 'QuantumShib', desc: 'Impulso especulativo reciente', target: 8 },
+    { id: 5, name: 'RocketPepe', desc: 'Comunidad activa y marketing', target: 12 },
+    { id: 6, name: 'HyperFloki', desc: 'Alta liquidez temporal', target: 25 },
+    { id: 7, name: 'GalaxyINU', desc: 'Proyecto con roadmap ambicioso', target: 50 },
+    { id: 8, name: 'PhantomDoge', desc: 'Movimientos explosivos recientes', target: 100 },
+    { id: 9, name: 'NebulaMix', desc: 'Token meme viral', target: 200 },
+    { id: 10, name: 'ShadowToken', desc: 'Riesgo alto — posible caída fuerte', target: -90, isLoss: true }
+  ]
+
+  const seededInitial = initialRows.map(r => {
+    if (r.isLoss) return { ...r, display: 'Pérdida -90%' }
+    const init = Math.max(1, Math.floor(r.target * 0.05))
+    return { ...r, initial: init, current: init }
+  })
+
+  const [rows, setRows] = useState(seededInitial)
+
+  useEffect(() => {
+    // animate multipliers every second for 15 seconds
+    let elapsed = 0
+    const total = 15
+    const interval = setInterval(() => {
+      elapsed += 1
+      setRows(prev => prev.map(r => {
+        if (r.isLoss) return r
+        const f = Math.min(elapsed / total, 1)
+        const base = r.initial + (r.target - r.initial) * f
+        // small random positive jitter to make it feel dynamic
+        const jitter = Math.random() * Math.max(1, r.target * 0.02)
+        const next = Math.min(r.target, Math.floor(base + jitter))
+        // ensure monotonic increase
+        const current = Math.max(r.current || r.initial, next)
+        return { ...r, current }
+      }))
+      if (elapsed >= total) clearInterval(interval)
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <>
       <header style={{
@@ -141,66 +186,16 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody>
-                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
-                  <td style={{ padding: '0.6rem 1rem' }}>1</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>MoonPup</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>Token emergente con volumen creciente</td>
-                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>2x</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
-                  <td style={{ padding: '0.6rem 1rem' }}>2</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>StarDoge</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>Pequeña comunidad, alta volatilidad</td>
-                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>3x</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
-                  <td style={{ padding: '0.6rem 1rem' }}>3</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>LaserCat</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>Rumores de listados en exchanges</td>
-                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>5x</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
-                  <td style={{ padding: '0.6rem 1rem' }}>4</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>QuantumShib</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>Impulso especulativo reciente</td>
-                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>8x</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
-                  <td style={{ padding: '0.6rem 1rem' }}>5</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>RocketPepe</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>Comunidad activa y marketing</td>
-                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>12x</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
-                  <td style={{ padding: '0.6rem 1rem' }}>6</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>HyperFloki</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>Alta liquidez temporal</td>
-                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>25x</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
-                  <td style={{ padding: '0.6rem 1rem' }}>7</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>GalaxyINU</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>Proyecto con roadmap ambicioso</td>
-                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>50x</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
-                  <td style={{ padding: '0.6rem 1rem' }}>8</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>PhantomDoge</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>Movimientos explosivos recientes</td>
-                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>100x</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #f1f1f1' }}>
-                  <td style={{ padding: '0.6rem 1rem' }}>9</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>NebulaMix</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>Token meme viral</td>
-                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700 }}>200x</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '0.6rem 1rem' }}>10</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>ShadowToken</td>
-                  <td style={{ padding: '0.6rem 1rem' }}>Riesgo alto — posible caída fuerte</td>
-                  <td style={{ padding: '0.6rem 1rem', fontWeight: 700, color: '#b21f1f' }}>Pérdida -90%</td>
-                </tr>
+                {rows.map((r, idx) => (
+                  <tr key={r.id} style={{ borderBottom: idx !== rows.length - 1 ? '1px solid #f1f1f1' : undefined }}>
+                    <td style={{ padding: '0.6rem 1rem' }}>{r.id}</td>
+                    <td style={{ padding: '0.6rem 1rem' }}>{r.name}</td>
+                    <td style={{ padding: '0.6rem 1rem' }}>{r.desc}</td>
+                    <td style={{ padding: '0.6rem 1rem', fontWeight: 700, color: r.isLoss ? '#b21f1f' : '#111' }}>
+                      {r.isLoss ? r.display : `${r.current}x`}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
