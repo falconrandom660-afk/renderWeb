@@ -87,7 +87,8 @@ export default function Home() {
       <main style={{
         paddingTop: 80 + 48,
         minHeight: '100vh',
-        background: '#f5f5f5',
+        background: '#0f0f0f',
+        color: '#eee',
         fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial'
       }}>
         <div style={{
@@ -176,22 +177,22 @@ export default function Home() {
         <section style={{ maxWidth: 1100, margin: '1rem auto 3rem', padding: '1rem' }}>
           <h3 style={{ marginBottom: '0.5rem' }}>Oportunidades de la semana</h3>
           <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff', borderRadius: 8, boxShadow: '0 6px 18px rgba(0,0,0,0.06)' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', background: '#1b1b1b', borderRadius: 8, boxShadow: '0 6px 18px rgba(0,0,0,0.06)', color: '#eee' }}>
               <thead>
-                <tr style={{ textAlign: 'left', borderBottom: '1px solid #eee' }}>
-                  <th style={{ padding: '0.75rem 1rem' }}>#</th>
-                  <th style={{ padding: '0.75rem 1rem' }}>Coin</th>
-                  <th style={{ padding: '0.75rem 1rem' }}>Descripción</th>
-                  <th style={{ padding: '0.75rem 1rem' }}>Multiplicador</th>
+                <tr style={{ textAlign: 'left', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                  <th style={{ padding: '0.75rem 1rem', background: '#222', color: '#fff' }}>#</th>
+                  <th style={{ padding: '0.75rem 1rem', background: '#222', color: '#fff' }}>Coin</th>
+                  <th style={{ padding: '0.75rem 1rem', background: '#222', color: '#fff' }}>Descripción</th>
+                  <th style={{ padding: '0.75rem 1rem', background: '#222', color: '#fff' }}>Multiplicador</th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map((r, idx) => (
-                  <tr key={r.id} style={{ borderBottom: idx !== rows.length - 1 ? '1px solid #f1f1f1' : undefined }}>
+                  <tr key={r.id} style={{ borderBottom: idx !== rows.length - 1 ? '1px solid rgba(255,255,255,0.04)' : undefined }}>
                     <td style={{ padding: '0.6rem 1rem' }}>{r.id}</td>
                     <td style={{ padding: '0.6rem 1rem' }}>{r.name}</td>
-                    <td style={{ padding: '0.6rem 1rem' }}>{r.desc}</td>
-                    <td style={{ padding: '0.6rem 1rem', fontWeight: 700, color: r.isLoss ? '#b21f1f' : '#111' }}>
+                    <td style={{ padding: '0.6rem 1rem', color: '#ddd' }}>{r.desc}</td>
+                    <td style={{ padding: '0.6rem 1rem', fontWeight: 700, color: r.isLoss ? '#ff6b6b' : '#fff' }}>
                       {r.isLoss ? r.display : `${r.current}x`}
                     </td>
                   </tr>
