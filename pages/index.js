@@ -73,15 +73,15 @@ export default function Home() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-around',
-        background: '#f8f8f8',
-        borderBottom: '1px solid #e6e6e6',
+        background: '#1a1a1a',
+        borderBottom: '1px solid rgba(255,255,255,0.04)',
         zIndex: 40
       }}>
-        <button>Menu 1</button>
-        <button>Menu 2</button>
-        <button>Menu 3</button>
-        <button>Menu 4</button>
-        <button>Menu 5</button>
+        <MenuIntro />
+        <button style={{ background: 'transparent', color: '#eee', border: 'none' }}>Menu 2</button>
+        <button style={{ background: 'transparent', color: '#eee', border: 'none' }}>Menu 3</button>
+        <button style={{ background: 'transparent', color: '#eee', border: 'none' }}>Menu 4</button>
+        <button style={{ background: 'transparent', color: '#eee', border: 'none' }}>Menu 5</button>
       </nav>
 
       <main style={{
@@ -203,5 +203,38 @@ export default function Home() {
         </section>
       </main>
     </>
+  )
+}
+
+function MenuIntro() {
+  const [open, setOpen] = useState(false)
+  return (
+    <div style={{ position: 'relative' }}>
+      <button
+        onClick={() => setOpen(s => !s)}
+        style={{ background: 'transparent', color: '#fff', border: 'none', padding: '0.5rem 0.75rem', fontWeight: 700 }}
+      >
+        Intro ▾
+      </button>
+
+      {open && (
+        <div style={{
+          position: 'absolute',
+          top: '100%',
+          left: 0,
+          background: '#222',
+          color: '#fff',
+          borderRadius: 6,
+          boxShadow: '0 6px 18px rgba(0,0,0,0.4)',
+          marginTop: 8,
+          minWidth: 160,
+          overflow: 'hidden'
+        }}>
+          <a href="#" style={{ display: 'block', padding: '0.6rem 0.9rem', color: '#fff', textDecoration: 'none' }}>Crear Cuenta</a>
+          <a href="#" style={{ display: 'block', padding: '0.6rem 0.9rem', color: '#fff', textDecoration: 'none' }}>Demo</a>
+          <a href="#" style={{ display: 'block', padding: '0.6rem 0.9rem', color: '#fff', textDecoration: 'none' }}>Acerca de Nosotros</a>
+        </div>
+      )}
+    </div>
   )
 }
